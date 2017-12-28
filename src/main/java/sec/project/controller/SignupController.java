@@ -1,7 +1,9 @@
 package sec.project.controller;
 
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -27,6 +29,13 @@ public class SignupController {
     @RequestMapping(value = "/form", method = RequestMethod.POST)
     public String submitForm(@RequestParam String name, @RequestParam String address) {
         signupRepository.save(new Signup(name, address));
+        return "redirect:/done";
+    }
+    
+    @RequestMapping(value = "/done", method = RequestMethod.GET)
+    public String listSignups(Model model) {
+        List<Signup> list = signupRepository.findAll();
+        model.addAttribute("list", list);
         return "done";
     }
 
