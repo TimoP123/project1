@@ -4,7 +4,11 @@
 
 This is the first project on Cyber Security Base with F-Secure course. The task was to create a web application that has at least five different flaws from the OWASP top ten list (2013).
 
-The application itself is very simple. It has a sign in form for an event and after the user has provided his name and address information the application show a list of all participants.
+The application itself is very simple. It has a sign in form for an event and after the user has provided his name and address information the application show a list of all participants. There's also a login page for getting into the supermember page.
+
+### A6 - Sensitive Data Exposure
+
+This application has only one valid username and password combination. The password is stored in the H2 database as it is without any hashing or encryption. This makes the database leaking a serious risk. Sensitive data like this deserves extra protection such as encryption as well as special precaution when exchanged with the browser.
 
 
 ### A8 - Cross-Site Request Forgery (CSRF)
