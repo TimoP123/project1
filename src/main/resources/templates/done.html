@@ -8,11 +8,14 @@
         <h1>Thank you! You have been signed up to the event!</h1>
         
         <table>
+            <tr><th>Name</th><th>Address</th></tr>
             <tr th:each="item : ${list}">
-                <td th:utext="${item.name}">1</td>
-                <td th:text="${item.address}">1</td>
+                <td th:utext="${item.name}" style="border: 1px solid gray; margin: 0px">1</td>
+                <td th:text="${item.address}" style="border: 1px solid gray; margin: 0px;">1</td>
             </tr>
         </table>
+        
+        <p><a href="./form">Back to front page</a></p>
 
     </body>
 </html>
