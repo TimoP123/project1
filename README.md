@@ -6,6 +6,10 @@ This is the first project on Cyber Security Base with F-Secure course. The task 
 
 The application itself is very simple. It has a sign in form for an event and after the user has provided his name and address information the application show a list of all participants. There's also a login page for getting into the supermember page.
 
+### A3 - Cross-Site Scripting (XSS)
+
+The application has a problem in the sign in form for the event. The name field is rendered to the browser using Thymeleaf's utext-attribute instead of text-attribute. This way the text that user has typed ends up to the event participants list unescaped.
+
 ### A6 - Sensitive Data Exposure
 
 This application has only one valid username and password combination. The password is stored in the H2 database as it is without any hashing or encryption. This makes the database leaking a serious risk. Sensitive data like this deserves extra protection such as encryption as well as special precaution when exchanged with the browser.
