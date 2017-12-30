@@ -10,6 +10,7 @@ The application itself is very simple. It has a sign in form for a fictional eve
 ### A3 - Cross-Site Scripting (XSS)
 
 Issue: Cross-Site Scripting (XSS)
+
 Steps to reproduce:
 1. Open the page http://localhost:8080 in a browser
 2. Type in the name field: <script> alert('Buhahahahaaa!'); </script>
@@ -25,6 +26,7 @@ To fix the issue one needs to change the th:utext-attribute to th:text. This pre
 ### A6 - Sensitive Data Exposure
 
 Issue: Sensitive data exposure
+
 Steps to reproduce: Examine the file ./sql/createAccountTable.sql
 
 This application has only one valid username and password combination. The password is stored in the H2 database as it is without any hashing or encryption. This makes the database leaking a serious risk. Sensitive data like this deserves extra protection such as encryption as well as special precaution when exchanged with the browser. Adding 'salt' before hashing the password makes exploiting leaked passwords even harder. The file SecurityConfiguration.java has already a PasswordEncoder method which uses BCrypt to encrypt passwords.
@@ -32,6 +34,7 @@ This application has only one valid username and password combination. The passw
 ### A7 - Missing Function Level Access Control
 
 Issue: Missing function level access control
+
 Steps to reproduce:
 1. Open the page http://localhost:8080/memberpage in a browser
 2. You end up in the supermember page
@@ -49,6 +52,7 @@ Protection from CSRF-attack can be activated by commenting the line `http.csrf()
 ### A9 - Using Components with Known Vulnerabilities
 
 Issue: Using components with known vulnerabilities
+
 Steps to reproduce:
 1. Open the terminal and go to the root folder of the application
 2. Run maven dependency-check wh command mvn dependency-check:check
